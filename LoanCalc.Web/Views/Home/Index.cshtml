@@ -1,0 +1,68 @@
+﻿<div class="alert alert-info" role="alert">
+    <p>This is a simple application for house loan payment calculation.</p>
+    <p>
+        Type in loan paremeters, and it will calculate payment schedule.
+        Application assumes fixed interest rate 3.5% per year.
+    </p>
+</div>
+
+<div class="row" style="display:none" data-bind="visible: appInited">
+    <div class="col-md-3">
+        <form>
+            <div class="form-group">
+                <label for="amount">Amount (PLN)</label>
+                <input type="text" class="form-control" id="amount" placeholder="Amount" data-bind="value: amount" maxlength="12">
+            </div>
+            <div class="form-group">
+                <label for="period">Payment period (years)</label>
+                <input type="text" class="form-control" id="period" placeholder="Payment period (years)" data-bind="value: period" maxlength="3">
+            </div>
+            
+            <div class="form-group">
+                <label for="interest-rate">Interest rate (%)</label>
+                <input type="text" id="interest-rate" class="form-control" value="3.5" disabled />
+            </div>
+
+            <button class="btn btn-raised btn-primary" data-bind="click: calculate">Calculate</button>
+        </form>
+    </div>
+    
+    <div class="col-md-8">
+        <div data-bind="visible: isScheduleVisible">
+            
+            <h3>Payment schedule</h3>
+        
+            <table  class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Principal</th>
+                    <th>Interest</th>
+                    <th>Balance</th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: payments">
+                <tr>
+                    <td data-bind="text: $index() + 1"></td>
+                    <td data-bind="text: Principal"></td>
+                    <td data-bind="text: Interest"></td>
+                    <td data-bind="text: Balance"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        
+        <div class="alert alert-danger" role="alert" data-bind="visible: isErrorMessageVisible">
+            Ooops. Something went wrong while calculating schedule.
+        </div>
+        
+        <div class="alert alert-info" role="alert" data-bind="visible: isLoading">
+            Loading ...
+        </div>
+    </div>
+</div>
+
+@section Scripts { 
+    <script type="text/javascript" src="~/Scripts/app.js"></script>   
+}
