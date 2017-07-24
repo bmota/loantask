@@ -12,10 +12,12 @@
             <div class="form-group">
                 <label for="amount">Amount (PLN)</label>
                 <input type="text" class="form-control" id="amount" placeholder="Amount" data-bind="value: amount" maxlength="12">
+                <div class="help-block">Amount in decimal format, eg. 360000.45 (max 12 digits)</div>
             </div>
             <div class="form-group">
                 <label for="period">Payment period (years)</label>
                 <input type="text" class="form-control" id="period" placeholder="Payment period (years)" data-bind="value: period" maxlength="3">
+                <div class="help-block">Integer number 1-999</div>
             </div>
             
             <div class="form-group">
@@ -27,7 +29,7 @@
         </form>
     </div>
     
-    <div class="col-md-8">
+    <div class="col-md-9">
         <div data-bind="visible: isScheduleVisible">
             
             <h3>Payment schedule</h3>
