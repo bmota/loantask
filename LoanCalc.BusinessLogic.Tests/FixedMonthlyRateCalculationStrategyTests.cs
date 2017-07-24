@@ -47,7 +47,7 @@ namespace LoanCalc.BusinessLogic.Tests
                 PaybackTimeInYears = 10
             };
 
-            var ret = sut.CalculatePaymentSchedule(parameters);
+            var ret = sut.GetPayments(parameters);
 
             Assert.AreEqual(120, ret.Count);
         }
@@ -64,7 +64,7 @@ namespace LoanCalc.BusinessLogic.Tests
                 PaybackTimeInYears = 10
             };
 
-            var ret = sut.CalculatePaymentSchedule(parameters);
+            var ret = sut.GetPayments(parameters);
 
             ExpectMonthlyPayment(new Payment
             {

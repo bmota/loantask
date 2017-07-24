@@ -5,6 +5,6 @@ namespace LoanCalc.BusinessLogic.CalculationStrategies
 {
     public interface ILoanCalculationStrategy
     {
-        List<Payment> CalculatePaymentSchedule(LoanCalculationParameters loanCalculationParameters);
+        List<Payment> GetPayments(LoanCalculationParameters loanCalculationParameters);
     }
 }

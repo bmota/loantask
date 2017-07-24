@@ -11,11 +11,11 @@ namespace LoanCalc.BusinessLogic.Model
             _loanCalculationStrategy = strategy;
         }
 
-        public PaymentSchedule CalculateMonthlySchedule(LoanCalculationParameters loanCalculationParameters)
+        public PaymentSchedule GetPaymentSchedule(LoanCalculationParameters loanCalculationParameters)
         {
             return new PaymentSchedule
             {
-                Payments = _loanCalculationStrategy.CalculatePaymentSchedule(loanCalculationParameters)
+                Payments = _loanCalculationStrategy.GetPayments(loanCalculationParameters)
             };
         }
     }

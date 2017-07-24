@@ -12,13 +12,13 @@ namespace LoanCalc.BusinessLogic.Services
             Validate(duration, principal);
 
             var factory = new LoanFactory();
-            var loan = factory.Get(loanType);
+            var loan = factory.GetLoan(loanType);
 
             var calculationStrategy = new FixedMonthlyRateCalculationStrategy();
 
             var loanCalulator = new LoanCalculator(calculationStrategy);
 
-            return loanCalulator.CalculateMonthlySchedule(new LoanCalculationParameters()
+            return loanCalulator.GetPaymentSchedule(new LoanCalculationParameters()
             {
                 AnnualInterestRate = loan.InterestRate,
                 PaybackTimeInYears = duration,

@@ -13,7 +13,7 @@ namespace LoanCalc.BusinessLogic.Factories
             _loans.Add(LoanType.HouseLoan, new HouseLoan());
         }
 
-        public Loan Get(LoanType type)
+        public Loan GetLoan(LoanType type)
         {
             if (!_loans.ContainsKey(type))
             {

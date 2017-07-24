@@ -11,7 +11,7 @@ namespace LoanCalc.BusinessLogic.CalculationStrategies
     /// </summary>
     public class FixedMonthlyRateCalculationStrategy : ILoanCalculationStrategy
     {
-        public List<Payment> CalculatePaymentSchedule(LoanCalculationParameters loanCalculationParameters)
+        public List<Payment> GetPayments(LoanCalculationParameters loanCalculationParameters)
         {
             var ret = new List<Payment>();
 
